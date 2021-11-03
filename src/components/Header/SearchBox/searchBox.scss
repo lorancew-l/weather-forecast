@@ -1,0 +1,115 @@
+@use '../../../scss/vars.module.scss';
+@use '../../../scss/colors.module.scss';
+@use '../../../scss/breakpoints.module.scss';
+
+.search-box-wrapper {
+  @media (max-width: breakpoints.$screen-small) {
+    width: 36px;
+    height: 36px;
+
+    position: relative;
+  }
+}
+
+.search-box {
+  height: vars.$header-content-height;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  background-color: colors.$white;
+  box-shadow: 0 1px 7px colors.$black-shadow;
+
+  padding: 6px 10px;
+  margin-right: auto;
+
+  border-radius: 10px;
+
+  transition: 0.3s;
+
+  @media (max-width: breakpoints.$screen-small) {
+    height: vars.$header-small-screen-search-size;
+    width: vars.$header-small-screen-search-size;
+
+    position: absolute;
+    right: 0;
+
+    border-radius: 18px;
+
+    margin-right: 0;
+    padding: 0;
+
+    &:focus-within {
+      width: 180px;
+
+      .input {
+        width: calc(100% - vars.$header-small-screen-search-size);
+
+        cursor: text;
+
+        &::placeholder {
+          color: lighten(colors.$black, 50%);
+        }
+      }
+    }
+  }
+
+  .icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 18px;
+    height: 18px;
+
+    margin-right: 0.5em;
+
+    pointer-events: none;
+
+    & > * {
+      width: 100%;
+      height: 100%;
+    }
+
+    @media (max-width: breakpoints.$screen-small) {
+      position: absolute;
+      right: calc(18px / 2);
+
+      width: 16px;
+      height: 16px;
+
+      margin-right: 0;
+    }
+  }
+
+  .input {
+    background-color: transparent;
+
+    border: none;
+
+    font-size: vars.$font-medium;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: lighten(colors.$black, 50%);
+    }
+
+    @media (max-width: breakpoints.$screen-small) {
+      width: vars.$header-small-screen-search-size;
+      height: vars.$header-small-screen-search-size;
+
+      padding-left: 1em;
+
+      cursor: pointer;
+
+      &::placeholder {
+        user-select: none;
+        color: colors.$white;
+      }
+    }
+  }
+}

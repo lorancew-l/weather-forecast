@@ -1,0 +1,16 @@
+@use '../../../scss/mixins.scss';
+@use '../../../scss/breakpoints.module.scss';
+
+.sun-card {
+  @include mixins.cards-rise-set-card;
+
+  svg {
+    width: 50px;
+    height: 50px;
+
+    @media (max-width: breakpoints.$screen-small) {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}

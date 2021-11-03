@@ -1,0 +1,42 @@
+@use './breakpoints.module.scss';
+
+// z-index
+$header-z: 100;
+
+// font
+$font-extra-small: 10px;
+$font-small: 12px;
+$font-medium: 16px;
+$font-large: 18px;
+$font-extra-large: 20px;
+$font-extra-extra-large: 26px;
+$font-mobile-multiplier: 0.8;
+
+// daily-slider
+$daily-slider-item-gap: 20px;
+$daily-slider-padding: 25px 10px;
+$daily-slider-new-items-per-slide: 1;
+
+// header
+$header-padding: 15px 0;
+$header-content-height: 36px;
+$header-content-max-height: 40px;
+$header-height: nth($header-padding, 1) * 2 + $header-content-max-height;
+$header-small-screen-search-size: 36px;
+
+// main
+$main-top-padding: 50px;
+$main-section-spacing: 50px;
+$main-small-screen-margin: 20px;
+
+// cards
+$uv-card-index-size: 210px;
+
+// alets
+$alerts-open-width: 350px;
+
+:export {
+  dailySliderGap: $daily-slider-item-gap;
+  dailySliderPadding: $daily-slider-padding;
+  dailySliderNewItemsPerSlide: $daily-slider-new-items-per-slide;
+}

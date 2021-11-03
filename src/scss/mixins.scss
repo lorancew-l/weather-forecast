@@ -1,0 +1,65 @@
+@use './vars.module.scss';
+@use './breakpoints.module.scss';
+
+@mixin first-letter-uppercase {
+  text-transform: lowercase;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+@mixin cards-rise-set-card {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+
+  gap: 25px;
+
+  flex-basis: 100%;
+  flex-grow: 1;
+  width: 100%;
+
+  @media (max-width: breakpoints.$screen-small) {
+    gap: 20px;
+  }
+
+  .date {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    svg {
+      margin-right: 10px;
+    }
+
+    font-size: vars.$font-extra-extra-large;
+
+    @media (max-width: breakpoints.$screen-small) {
+      font-size: vars.$font-extra-extra-large * vars.$font-mobile-multiplier;
+    }
+  }
+}
+
+@mixin app-container {
+  max-width: 60%;
+  margin: 0 auto;
+
+  @media (max-width: breakpoints.$screen-extra-large) {
+    max-width: 70%;
+  }
+
+  @media (max-width: breakpoints.$screen-large) {
+    max-width: 80%;
+  }
+
+  @media (max-width: breakpoints.$screen-medium) {
+    max-width: 85%;
+  }
+
+  @media (max-width: breakpoints.$screen-small) {
+    margin: 0 25px;
+    max-width: 100%;
+  }
+}

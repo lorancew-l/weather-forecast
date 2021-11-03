@@ -1,0 +1,21 @@
+@use '../../scss/colors.module.scss';
+@use '../../scss/mixins.scss';
+
+.api-attribution {
+  text-align: center;
+  padding: 40px 0;
+
+  color: lighten(colors.$black, 20%);
+
+  .container {
+    @include mixins.app-container;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:visited {
+      color: inherit;
+    }
+  }
+}

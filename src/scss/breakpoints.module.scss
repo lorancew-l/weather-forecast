@@ -1,0 +1,15 @@
+$screen-extra-small: 320px;
+$screen-small: 576px;
+$screen-medium: 900px;
+$screen-large: 1300px;
+$screen-extra-large: 1600px;
+$screen-extra-extra-large: 1900px;
+
+:export {
+  screenExtraSmall: $screen-extra-small;
+  screenSmall: $screen-small;
+  screenMedium: $screen-medium;
+  screenLarge: $screen-large;
+  screenExtraLarge: $screen-extra-large;
+  screenExtraExtraLarge: $screen-extra-extra-large;
+}

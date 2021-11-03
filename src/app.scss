@@ -1,0 +1,33 @@
+@use './scss/vars.module.scss';
+@use './scss/colors.module.scss';
+@use './scss/breakpoints.module.scss';
+
+html {
+  font-size: vars.$font-medium;
+  font-family: 'Roboto', sans-serif;
+  color: colors.$black;
+
+  overflow-x: hidden;
+
+  @media (max-width: breakpoints.$screen-small) {
+    font-size: vars.$font-mobile-multiplier * vars.$font-medium;
+  }
+}
+
+#root {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: colors.$light-blue;
+
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}

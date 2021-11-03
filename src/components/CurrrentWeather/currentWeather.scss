@@ -1,0 +1,94 @@
+@use '../../scss/vars.module.scss';
+@use '../../scss/colors.module.scss';
+@use '../../scss/breakpoints.module.scss';
+@use '../../scss/mixins.scss';
+
+.current-weather {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 15px;
+
+  .city-name {
+    margin: 0;
+    font-size: vars.$font-extra-large;
+
+    @media (max-width: breakpoints.$screen-small) {
+      font-size: vars.$font-extra-large * vars.$font-mobile-multiplier;
+    }
+
+    text-transform: capitalize;
+  }
+
+  .main-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .icon {
+      width: 70px;
+      height: 70px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      & > img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        width: 90px;
+        height: 90px;
+      }
+    }
+
+    .temperature {
+      font-weight: bold;
+      font-size: vars.$font-extra-extra-large;
+    }
+
+    .temperature-scale {
+      display: flex;
+      flex-direction: column;
+
+      .scale-switch {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background-color: transparent;
+        border: none;
+
+        cursor: pointer;
+        width: 35px;
+        height: 35px;
+
+        padding: 5px;
+        font-size: vars.$font-extra-large;
+
+        transition: 0.2s;
+
+        &:hover {
+          color: colors.$orange;
+        }
+
+        &.selected {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .description {
+    font-size: vars.$font-large;
+    @include mixins.first-letter-uppercase;
+
+    @media (max-width: breakpoints.$screen-small) {
+      font-size: vars.$font-extra-large * vars.$font-mobile-multiplier;
+    }
+  }
+}

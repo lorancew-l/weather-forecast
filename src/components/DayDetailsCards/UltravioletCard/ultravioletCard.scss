@@ -1,0 +1,36 @@
+@use '../../../scss/vars.module.scss';
+@use '../../../scss/colors.module.scss';
+@use '../../../scss/breakpoints.module.scss';
+@use '../../../scss/mixins.scss';
+
+.uv-card {
+  .uv-index {
+    width: vars.$uv-card-index-size;
+
+    .scale {
+      stroke: colors.$gray;
+      fill: none;
+      stroke-width: 5px;
+    }
+
+    .graphic-value {
+      stroke: colors.$orange;
+      fill: none;
+      stroke-width: 10px;
+      transform-origin: center;
+    }
+
+    .value {
+      font-size: vars.$font-extra-large;
+      @media (max-width: breakpoints.$screen-small) {
+        font-size: vars.$font-extra-large * vars.$font-mobile-multiplier;
+      }
+    }
+  }
+}
+
+.uv-index-description {
+  span {
+    @include mixins.first-letter-uppercase;
+  }
+}

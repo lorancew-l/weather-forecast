@@ -1,0 +1,77 @@
+@use '../../../scss/vars.module.scss';
+@use '../../../scss/breakpoints.module.scss';
+@use '../../../scss/mixins.scss';
+
+.hour-details {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  gap: 15px;
+
+  flex-grow: 1;
+  flex-basis: 100%;
+
+  text-align: center;
+
+  user-select: none;
+
+  padding: 20px 0;
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 40px;
+
+    img {
+      object-fit: cover;
+      width: 75px;
+      height: 75px;
+    }
+  }
+
+  .temperature {
+    font-size: vars.$font-large;
+    font-weight: bold;
+
+    @media screen {
+      max-width: breakpoints.$screen-small;
+    }
+  }
+
+  .description {
+    @include mixins.first-letter-uppercase;
+  }
+
+  .wind-speed,
+  .humidity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      margin-right: 5px;
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  .wind-speed {
+    @media (max-width: breakpoints.$screen-small) {
+      display: none;
+    }
+  }
+}
+
+.hourly-slider {
+  .items {
+    transition: 0.8s ease;
+    transition-property: transform;
+
+    cursor: grab;
+  }
+
+  height: 100%;
+}

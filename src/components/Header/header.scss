@@ -1,0 +1,59 @@
+@use '../../scss/vars.module.scss';
+@use '../../scss/breakpoints.module.scss';
+@use '../../scss/colors.module.scss';
+@use '../../scss/mixins.scss';
+
+.header {
+  position: fixed;
+  z-index: vars.$header-z;
+  left: 0;
+  top: 0;
+
+  width: 100%;
+
+  padding: vars.$header-padding;
+
+  background-color: colors.$light-blue;
+
+  @media (max-width: breakpoints.$screen-small) {
+    &:focus-within {
+      .title {
+        opacity: 0;
+        transition-delay: 0.1s;
+      }
+    }
+  }
+
+  .title {
+    font-size: vars.$font-large;
+    font-weight: bold;
+    margin-right: 30px;
+
+    opacity: 1;
+    transition: 0.15s;
+    transition-delay: 0.1s;
+
+    @media (max-width: breakpoints.$screen-small) {
+      flex-grow: 1;
+      flex-shrink: 1;
+      margin-right: 0;
+    }
+  }
+
+  .container {
+    @include mixins.app-container;
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 100%;
+    height: vars.$header-content-max-height;
+
+    @media (max-width: breakpoints.$screen-small) {
+      justify-content: flex-end;
+    }
+  }
+}

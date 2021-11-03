@@ -1,0 +1,88 @@
+@use '../../scss/vars.module.scss';
+@use '../../scss/colors.module.scss';
+@use '../../scss/breakpoints.module.scss';
+@use '../../scss/mixins.scss';
+
+.daily-forecast {
+  margin-top: vars.$main-section-spacing;
+
+  user-select: none;
+
+  header {
+    margin: 0 !important;
+  }
+
+  .daily-slider {
+    .items {
+      padding: vars.$daily-slider-padding;
+      transition: 0.3s ease;
+      transition-property: transform;
+    }
+  }
+
+  .day-forecast {
+    background-color: colors.$white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+
+    border-radius: 12px;
+    padding: 20px 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    font-size: vars.$font-large;
+    cursor: pointer;
+
+    transition: 0.2s;
+    transition-property: transform;
+
+    @media (max-width: breakpoints.$screen-small) {
+      font-size: vars.$font-large * vars.$font-mobile-multiplier;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &.selected {
+      box-shadow: 0px 0px 10px colors.$orange;
+    }
+
+    time {
+      text-transform: capitalize;
+    }
+
+    .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 70px;
+      height: 70px;
+
+      img {
+        object-fit: cover;
+        width: 90px;
+        height: 90px;
+      }
+    }
+
+    .temperature {
+      .max {
+        font-weight: bold;
+        margin-right: 7px;
+      }
+
+      .min {
+        color: lighten(colors.$black, 30%);
+      }
+    }
+
+    .description {
+      @include mixins.first-letter-uppercase;
+    }
+  }
+}

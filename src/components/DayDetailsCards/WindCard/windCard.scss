@@ -1,0 +1,80 @@
+@use '../../../scss/vars.module.scss';
+@use '../../../scss/colors.module.scss';
+@use '../../../scss/breakpoints.module.scss';
+
+.wind-card {
+  gap: 10px;
+
+  .speed {
+    .value {
+      font-size: 1.5 * vars.$font-extra-extra-large;
+      margin-right: 5px;
+
+      @media (max-width: breakpoints.$screen-small) {
+        font-size: 1.5 * vars.$font-extra-extra-large *
+          vars.$font-mobile-multiplier;
+      }
+    }
+
+    .unit {
+      font-size: vars.$font-extra-large;
+      @media (max-width: breakpoints.$screen-small) {
+        font-size: vars.$font-extra-large * vars.$font-mobile-multiplier;
+      }
+    }
+  }
+
+  .gust {
+    color: lighten(colors.$black, 40%);
+
+    .value {
+      font-size: vars.$font-extra-large;
+      margin-right: 5px;
+
+      @media (max-width: breakpoints.$screen-small) {
+        font-size: vars.$font-extra-large * vars.$font-mobile-multiplier;
+      }
+    }
+  }
+}
+
+.wind-direction {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  .compass {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    background-color: colors.$white;
+    border: 2px solid colors.$gray;
+    border-radius: 50%;
+
+    @media (max-width: breakpoints.$screen-small) {
+      width: 35px;
+      height: 35px;
+    }
+
+    .needle {
+      fill: colors.$orange;
+      height: 20px;
+      width: auto;
+
+      @media (max-width: breakpoints.$screen-small) {
+        height: 17px;
+        width: auto;
+      }
+    }
+  }
+
+  .direction-name {
+    text-transform: uppercase;
+  }
+}

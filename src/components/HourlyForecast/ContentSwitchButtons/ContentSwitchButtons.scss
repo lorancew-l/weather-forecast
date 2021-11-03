@@ -1,0 +1,44 @@
+@use '../../../scss/colors.module.scss';
+
+.content-switch-buttons {
+  align-self: flex-end;
+
+  button {
+    position: relative;
+
+    padding: 10px 15px;
+    min-width: 80px;
+
+    color: colors.$black;
+    background-color: colors.$white;
+
+    border: none;
+    border-radius: 7px;
+    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
+
+    cursor: pointer;
+    text-transform: capitalize;
+    transition: 0.2s;
+
+    &.selected {
+      color: colors.$white;
+      background-color: colors.$orange;
+    }
+
+    &:active {
+      transform: scale(0.95);
+      box-shadow: 0px 1px 10px 2px rgba(colors.$orange, 0.7);
+    }
+
+    &:not(.selected):hover {
+      box-shadow: 0px 1px 15px 3px rgba(colors.$orange, 0.7);
+
+      color: colors.$white;
+      background-color: colors.$orange;
+    }
+
+    &:nth-child(1) {
+      margin-right: 15px;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+$white: #ffffff;
+$black: #000000;
+$light-blue: #cae9ff;
+$dark-blue: #27303f;
+$gray: #ebebeb;
+$orange: #ec6e4c;
+$black-shadow: rgba(0, 0, 0, 0.25);
+
+:export {
+  white: $white;
+  black: $black;
+  lightBlue: $light-blue;
+  darkBlue: $dark-blue;
+  gray: $gray;
+  orange: $orange;
+}

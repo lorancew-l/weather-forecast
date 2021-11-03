@@ -1,0 +1,17 @@
+@use '../../scss/breakpoints.module.scss';
+
+.day-details-cards {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+    @media (max-width: breakpoints.$screen-medium) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: breakpoints.$screen-small) {
+      grid-template-columns: 1fr;
+    }
+  }
+}

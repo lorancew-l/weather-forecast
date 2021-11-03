@@ -1,0 +1,47 @@
+@use '../../../scss/vars.module.scss';
+@use '../../../scss/colors.module.scss';
+@use '../../../scss/breakpoints.module.scss';
+@use '../../../scss/mixins.scss';
+
+.bar-chart-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 25px;
+
+  .value {
+    font-size: vars.$font-extra-extra-large;
+
+    @media (max-width: breakpoints.$screen-small) {
+      font-size: vars.$font-extra-extra-large * vars.$font-mobile-multiplier;
+    }
+  }
+
+  .bar-background {
+    background-color: colors.$gray;
+    border-radius: 15px;
+
+    height: 85%;
+    width: 65px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    overflow: hidden;
+
+    .bar {
+      width: 100%;
+
+      border-radius: 0 0 15px 15px;
+      background-color: colors.$orange;
+    }
+  }
+}
+
+.bar-chart-description {
+  span {
+    @include mixins.first-letter-uppercase;
+  }
+}

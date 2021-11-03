@@ -1,0 +1,11 @@
+@use '../../scss/vars.module.scss';
+@use '../../scss/breakpoints.module.scss';
+@use '../../scss/mixins.scss';
+
+.main {
+  padding-top: vars.$header-height + vars.$main-top-padding;
+
+  .container {
+    @include mixins.app-container;
+  }
+}

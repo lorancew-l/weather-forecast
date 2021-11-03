@@ -1,0 +1,34 @@
+@use '../../../scss/mixins.scss';
+@use '../../../scss/breakpoints.module.scss';
+
+.moon-card {
+  @include mixins.cards-rise-set-card;
+
+  svg {
+    width: 40px;
+    height: 40px;
+
+    @media (max-width: breakpoints.$screen-small) {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+.moon-phase {
+  gap: 10px;
+
+  .icon {
+    width: 30px;
+    height: 30px;
+
+    @media (max-width: breakpoints.$screen-small) {
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  .name {
+    @include mixins.first-letter-uppercase;
+  }
+}
