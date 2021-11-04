@@ -1,4 +1,4 @@
-const appRootUrl = '/';
+export const appRootUrl = '/weather-forecast/';
 
 export const search = {
   cooldawnMs: 1000,
@@ -7,9 +7,9 @@ export const search = {
 
 export const apiUrls = {
   weatherByCoords: 'https://api.openweathermap.org/data/2.5/onecall',
-  cityNameByCoords: 'http://api.openweathermap.org/geo/1.0/reverse',
-  coordsByCityName: 'http://api.openweathermap.org/geo/1.0/direct',
-  icons: 'http://openweathermap.org/img/wn/',
+  cityNameByCoords: 'https://api.openweathermap.org/geo/1.0/reverse',
+  coordsByCityName: 'https://api.openweathermap.org/geo/1.0/direct',
+  icons: 'https://openweathermap.org/img/wn/',
 
   getIcon(code, size) {
     return `${this.icons}${code}@${size}x.png`;

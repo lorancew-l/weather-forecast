@@ -6,6 +6,7 @@ import { defaultCity, appUrls } from './constants';
 import getCityNameByCoords from './api/geo/getCityNameByCoords';
 import getClientLocation from './utils/geolocation/getClientLocation';
 import checkGeolocationPermission from './utils/geolocation/checkGeolocationPermission';
+import { appRootUrl } from './constants';
 import './app.scss';
 
 function App() {
@@ -41,10 +42,10 @@ function App() {
 
   return (
     <Switch>
-      <Route exact path="/">
+      <Route exact path={`${appRootUrl}`}>
         <Redirect to={redirectUrl} />
       </Route>
-      <Route exact path="/:cityName">
+      <Route exact path={`${appRootUrl}:cityName`}>
         <TemperatureScaleProvider>
           <MainPage />
         </TemperatureScaleProvider>
