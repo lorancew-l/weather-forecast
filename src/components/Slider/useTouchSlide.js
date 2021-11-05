@@ -10,7 +10,7 @@ export default function useTouchSlide(slideLeft, slideRight) {
       return;
     }
 
-    if (scrollDistance < 0) {
+    if (scrollDistance > 0) {
       slideLeft();
     } else {
       slideRight();
