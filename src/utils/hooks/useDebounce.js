@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
 export default function useDebounce(func, timeout) {
   const timeoutRef = useRef();
@@ -12,13 +12,18 @@ export default function useDebounce(func, timeout) {
 
   useEffect(() => clearTimer(), []);
 
-  return {
-    debouncedFunction(...args) {
+  const debouncedFunction = useCallback(
+    (...args) => {
       clearTimer();
       timeoutRef.current = setTimeout(() => {
         func(...args);
       }, timeout);
     },
+    [func, timeout]
+  );
+
+  return {
+    debouncedFunction,
     cancelDebouncedFunction: clearTimer,
   };
 }

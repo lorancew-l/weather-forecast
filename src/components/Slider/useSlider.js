@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useLayoutEffect, useRef, useState } from 'react';
 import useResizeObserver from '../../utils/hooks/useResizeObserver';
 import useDebounce from '../../utils/hooks/useDebounce';
 
@@ -15,6 +15,10 @@ export default function useSlider(
   const slideCount = Math.ceil((itemsCount - itemsPerSlide) / newItemsPerSlide);
 
   const previousWidthRef = useRef();
+
+  useLayoutEffect(() => {
+    setItemWidth(itemRef.current.getBoundingClientRect().width);
+  }, [itemRef]);
 
   function slide(nextSlide) {
     if (nextSlide < 0 || nextSlide > slideCount) {
@@ -35,7 +39,7 @@ export default function useSlider(
   }
 
   const resize = useCallback(() => {
-    function calculateCurrentSlideAfterResize() {
+    function setCurrentSlideAfterResize() {
       if (!selectedItemIndex || selectedItemIndex + 1 <= itemsPerSlide) {
         setCurrentSlide(0);
       } else {
@@ -59,7 +63,7 @@ export default function useSlider(
     }
 
     setItemWidth(itemRef.current.getBoundingClientRect().width);
-    calculateCurrentSlideAfterResize();
+    setCurrentSlideAfterResize();
   }, [selectedItemIndex, itemsPerSlide, newItemsPerSlide, itemRef]);
 
   const { debouncedFunction: debouncedResize } = useDebounce(resize, 500);
