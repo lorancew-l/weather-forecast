@@ -44,7 +44,9 @@
     }
 
     &:hover {
-      transform: scale(1.05);
+      @media (min-width: breakpoints.$screen-small) {
+        transform: scale(1.05);
+      }
     }
 
     &.selected {
