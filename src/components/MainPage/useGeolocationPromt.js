@@ -17,7 +17,7 @@ export default function useGeolocationPromt() {
               history.push(
                 appUrls.getCityWeatherUrl(
                   cityName,
-                  coords.longitude,
+                  coords.latitude,
                   coords.longitude
                 )
               );
